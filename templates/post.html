@@ -1,4 +1,10 @@
-{% extends "base.html" %} {% block content %}
+{% extends "base.html" %}
+
+{% set site_title = head.site_title %}
+{% set lang = head.lang %}
+{% set page_title = post.title %}
+
+{% block content %}
 
 <h1>{{post.title}}</h1>
 

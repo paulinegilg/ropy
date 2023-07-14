@@ -1,0 +1,42 @@
+{
+  "title": "RoPy",
+  "lang": "en",
+  "posts": "true",
+  "actions": [
+    {
+      "title": "Action 1",
+      "text": "Text 1",
+      "link": "/"
+    },
+    {
+      "title": "Action 2",
+      "text": "Text 2",
+      "link": "/"
+    },
+    {
+      "title": "Action 3",
+      "text": "Text 3",
+      "link": "/"
+    }
+  ],
+  "nav": [
+    {
+      "text": "Home", "link": "/"
+    },
+    {
+      "text": "About", "link": "/"
+    }
+  ],
+  "footer": {
+    "nav": [
+      {
+        "text": "Legal notice", "link": "/"
+      },
+      {
+        "text": "Personal data", "link": "/"
+      }
+    ],
+    "copyright": "",
+    "licence": "GPLv3"
+  }
+}

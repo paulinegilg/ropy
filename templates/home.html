@@ -1,23 +1,46 @@
 {% extends "base.html" %}
 
+{% set site_title = head.site_title %}
+{% set lang = head.lang %}
+{% set page_title = data.title %}
+
 {% block content %}
 
-<h1>Home</h1>
-
-<div>
-
-{% for post in posts %}
-
-    <p>
-        <h2>{{loop.index}}: <a href="posts/{{ post.slug }}.html">{{post.title}}</a> <small>{{post.date}}</small></h2>
-        {{post.summary}}
-    </p>
-
-{% endfor %}
-
-        <p>{{content}}</p>
-
-
+<div class="flex-column">
+    <img src="{{ data.hero.image }}" alt=""/>
+    <hgroup>
+        <h1>{{ data.hero.title }}</h1>
+        <p>{{ data.hero.subtitle }}</p>
+    </hgroup>
 </div>
+
+{% if data.actions|length %}
+<section class="flex-row-center">
+    {% for action in data.actions %}
+    <a href="{{action.link}}" title="{{action.title}}">
+        <h2>{{action.title}}</h2>
+        <p>{{action.text}}</p>
+    </a>
+    {% endfor %}
+</section>
+{% endif %}
+
+<section>
+    {{data.content}}
+</section>
+
+{% if posts|length %}
+<section class="flex-column">
+    {% for post in posts %}
+    <div>
+        <h2>
+            <a href="posts/{{ post.slug }}.html">{{post.title}}</a>
+            <small>{{post.date}}</small>
+        </h2>
+        {{post.summary}}
+    </div>
+    {% endfor %}
+</section>
+{% endif %}
 
 {% endblock %}

@@ -1,15 +1,10 @@
 ---
 layout: home
+title: Home
 hero:
-  title: Title
-  subtitle: Subtitle
-  image:
-    src: /logo.png
-  actions:
-    - text: Action 1
-      link: #
-    - text: Action 2
-      link: #
+    title: Title
+    subtitle: Subtitle
+    image: /logo.png
 ---
 
 contenu home

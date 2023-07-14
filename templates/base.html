@@ -1,13 +1,21 @@
 <!DOCTYPE html>
 
-<html lang="fr">
+<html lang="{{ lang }}">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Test</title>
+    <link rel="stylesheet" href="assets/styles/style.css">
+    <title>{{ page_title }} | {{ site_title }}</title>
   </head>
-  <body class="container">
-    {% block content %} {% endblock %}
+  <body>
+    <header>
+    </header>
+    <main>
+      {% block content %}
+      {% endblock %}
+    </main>
+    <footer>
+    </footer>
   </body>
 </html>
