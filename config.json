@@ -1,30 +1,36 @@
 {
   "title": "RoPy",
   "lang": "en",
-  "posts": "true",
+  "posts": true,
   "actions": [
     {
-      "title": "Action 1",
+      "title": "Zen",
       "text": "Text 1",
-      "link": "/"
+      "link": "/",
+      "icon": "filetype-py"
     },
     {
-      "title": "Action 2",
+      "title": "Light",
       "text": "Text 2",
-      "link": "/"
+      "link": "/",
+      "icon": "magic"
     },
     {
-      "title": "Action 3",
+      "title": "Accessible",
       "text": "Text 3",
-      "link": "/"
+      "link": "/",
+      "icon": "universal-access"
     }
   ],
   "nav": [
     {
-      "text": "Home", "link": "/"
-    },
-    {
       "text": "About", "link": "/"
+    }
+  ],
+  "socialLinks": [
+    {
+      "type": "github",
+      "link": "https://github.com"
     }
   ],
   "footer": {
@@ -38,5 +44,12 @@
     ],
     "copyright": "",
     "licence": "GPLv3"
+  },
+  "labels": {
+    "homeLink": "Home",
+    "primaryNav": "Primary navigation",
+    "newWindow": "New window",
+    "skipLink": "Skip to content",
+    "postsTitle": "Posts"
   }
 }

@@ -1,46 +1,60 @@
 {% extends "base.html" %}
 
-{% set site_title = head.site_title %}
-{% set lang = head.lang %}
+{% set config = config_data %}
+
 {% set page_title = data.title %}
 
 {% block content %}
 
-<div class="flex-column">
-    <img src="{{ data.hero.image }}" alt=""/>
-    <hgroup>
-        <h1>{{ data.hero.title }}</h1>
-        <p>{{ data.hero.subtitle }}</p>
-    </hgroup>
-</div>
+<div class="home-content">
 
-{% if data.actions|length %}
-<section class="flex-row-center">
-    {% for action in data.actions %}
-    <a href="{{action.link}}" title="{{action.title}}">
-        <h2>{{action.title}}</h2>
-        <p>{{action.text}}</p>
-    </a>
-    {% endfor %}
-</section>
-{% endif %}
-
-<section>
-    {{data.content}}
-</section>
-
-{% if posts|length %}
-<section class="flex-column">
-    {% for post in posts %}
-    <div>
-        <h2>
-            <a href="posts/{{ post.slug }}.html">{{post.title}}</a>
-            <small>{{post.date}}</small>
-        </h2>
-        {{post.summary}}
+    <div class="hero flex-column">
+        <img src="{{ data.hero.image }}" alt=""/>
+        <hgroup class="flex-column">
+            <h1>{{ data.hero.title }}</h1>
+            <p>{{ data.hero.subtitle }}</p>
+        </hgroup>
     </div>
-    {% endfor %}
-</section>
-{% endif %}
+
+    {% if config.actions|length %}
+    <section class="actions flex-row-center">
+        {% for action in config.actions %}
+        <a href="{{ action.link }}" title="{{ action.title }}" class="flex-column">
+            {% if action.icon %}
+            <div class="actions__action-icon">
+                <i class="bi bi-{{ action.icon }}" aria-hidden="true"></i>
+            </div>
+            {% endif %}
+            <h2>{{ action.title }}</h2>
+            <p>{{ action.text }}</p>
+        </a>
+        {% endfor %}
+    </section>
+    {% endif %}
+
+    <section>
+        {{ data.content }}
+    </section>
+
+    {% if posts|length %}
+    <section class="posts flex-column">
+        <h2>{{ config.labels.postsTitle }}</h2>
+            {% for post in posts %}
+            <article class="flex-row">
+                <i class="bi bi-asterisk" aria-hidden="true"></i>
+                <div class="flex-column">
+                    <h3 class="flex-row">
+                        <a href="posts/{{ post.slug }}.html" class="flex-column">
+                        {{ post.title }}
+                        </a>
+                        <span>{{ post.date }}</span>
+                    </h3>
+                    <p>{{ post.summary }}</p>
+                </div>
+            </article>
+            {% endfor %}
+    </section>
+    {% endif %}
+</div>
 
 {% endblock %}

@@ -1,0 +1,210 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    background-color: #0f172a;
+    color: #8a98d5;
+    font-family: "Ubuntu", sans-serif;
+    font-size: 1.8rem;
+    line-height: 1.6;
+}
+
+/* Skip link */
+.skip-link {
+    display: inline-block;
+    position: absolute;
+    z-index: 2;
+    padding: 0.5rem;
+    top: 1rem;
+    left: -20rem;
+    background-color: #ffffe6;
+    color: #0f172a;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.skip-link:focus {
+    left: 1rem;
+}
+
+/* Containers and flexbox */
+
+.container {
+    max-width: 110rem;
+    width: 100%;
+    margin: auto;
+    padding: 1rem;
+}
+
+.flex-row, .flex-row-center, .flex-row-space-between, .flex-column {
+    display: flex;
+    gap: 1rem;
+}
+
+.flex-row-center {
+    justify-content: center;
+}
+
+.flex-row-space-between {
+    justify-content: space-between;
+}
+
+.flex-column {
+    flex-direction: column;
+}
+
+/* Links */
+
+main a, .skip-link a {
+    color: #ffffe6;
+    font-weight: 700;
+}
+
+main a:hover {
+    color: #ffffb3;
+}
+
+/* Titles */
+
+h1 {
+    font-size: 4.8rem;
+}
+
+h2 {
+    font-size: 3.6rem;
+}
+
+/* Paragraphs */
+
+p {
+    padding: 1.4rem 0 1rem 0;
+}
+
+/* Header */
+
+/* Nav */
+
+.nav-bar {
+    position: fixed;
+    width: 100%;
+    backdrop-filter: blur(10px);
+    height: 6rem;
+}
+
+.nav-bar a {
+    text-decoration: none;
+    color: #ffffe6;
+    font-weight: 700;
+}
+
+.nav-bar a:hover {
+    color: #ffffb3;
+}
+
+.nav-bar__site-title {
+    font-size: 2rem;
+    line-height: 4rem;
+}
+
+nav ul {
+    display: flex;
+    gap: 2rem;
+}
+
+nav ul li {
+    list-style: none;
+    line-height: 4rem;
+}
+
+/* Main */
+
+main {
+    padding: 10rem 0 2rem 0;
+}
+
+/* Home content */
+
+.home-content {
+    display: flex;
+    flex-direction: column;
+    gap: 5rem;
+}
+
+/* Hero */
+
+.hero {
+    text-align: center;
+}
+
+.hero h1 {
+    color: #ffffb3;
+}
+
+.hero h1 + p {
+    font-size: 2.4rem;
+}
+
+/* Actions */
+
+.actions p {
+    padding: 0.25rem 0 0.25rem 0;
+    font-weight: normal;
+}
+
+.actions h2 {
+    font-size: 2.8rem;
+}
+
+.actions > a {
+    max-width: 38.5rem;
+    width: 100%;
+}
+
+.actions a {
+    color: inherit;
+    text-decoration: none;
+    padding: 2rem;
+    background-color: #1e293b;
+    border-radius: 1rem;
+    border: 1px solid #1e293b;
+    transition: all 0.5s ease-out;
+}
+
+.actions a:hover {
+    color: inherit;
+    border: 1px solid #8a98d5;
+}
+
+.actions__action-icon {
+    background-color: #0f172a;
+    border-radius: 0.5rem;
+    width: 3rem;
+    padding: 0.25rem;
+    text-align: center;
+    color: #ffffe6;
+}
+
+/* Posts */
+
+.posts article {
+    border-bottom: 1px solid #1e293b;
+    padding: 2rem 0 2rem 0;
+}
+
+.posts article a {
+    text-decoration: none;
+}
+
+.posts article p {
+    padding: 0;
+}
+
+.posts article i, .posts article a {
+    color: #ffffb3;
+}

@@ -1,7 +1,7 @@
 ---
-title: Test
+title: I'm starting a new project! A static site generator in Python!
 date: 2023-07-12
-summary: Testing
+summary: I want to build something very simple and fully accessible.
 slug: first-post
 ---
 

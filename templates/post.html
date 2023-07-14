@@ -1,16 +1,16 @@
 {% extends "base.html" %}
 
-{% set site_title = head.site_title %}
-{% set lang = head.lang %}
+{% set config = config_data %}
+
 {% set page_title = post.title %}
 
 {% block content %}
 
-<h1>{{post.title}}</h1>
+<hgroup>
+  <h1>{{ post.title }}</h1>
+  <p>{{ post.date }}</p>
+</hgroup>
 
-<p>
-  <small>{{post.date}}</small>
-  {{post.content}}
-</p>
+{{ post.content }}
 
 {% endblock %}

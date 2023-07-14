@@ -5,7 +5,7 @@ from jinja2 import Environment, PackageLoader
 import json
 
 # Load data from json config file
-site_data = json.load(open('config.json', 'r'))
+config_data = json.load(open('config.json', 'r'))
 
 # Set templates
 env = Environment(loader=PackageLoader('main', 'templates'))
@@ -17,15 +17,11 @@ post_template = env.get_template('post.html')
 posts_metadata = []
 POSTS = {}
 PAGES = {}
-site_head_data = {
-    'lang': site_data['lang'],
-    'site_title': site_data['title']
-}
 
 # Convert Markdown into HTML
 
 # Posts
-if site_data['posts'] == 'true':
+if config_data['posts']:
     for post in os.listdir('content/posts'):
         file_path = os.path.join('content/posts', post)
         with open(file_path, 'r') as file:
@@ -50,12 +46,12 @@ for page in os.listdir('content'):
 # BUILD
 
 # Create build directory if needed
-build_path = 'build'
-if not os.path.exists(build_path):
-    os.makedirs(build_path)
+# build_path = 'build'
+# if not os.path.exists(build_path):
+#     os.makedirs(build_path)
 
 # Build posts
-if site_data['posts'] == 'true':
+if config_data['posts']:
     for post in POSTS:
         post_metadata = POSTS[post].metadata
 
@@ -65,7 +61,7 @@ if site_data['posts'] == 'true':
             'date': post_metadata['date']
         }
 
-        post_html = post_template.render(post=post_data, head=site_head_data)
+        post_html = post_template.render(post=post_data, config_data=config_data)
         post_file_path = 'build/posts/{slug}.html'.format(slug=post_metadata['slug'])
         os.makedirs(os.path.dirname(post_file_path), exist_ok=True)
         with open(post_file_path, 'w') as output_post_file:
@@ -79,10 +75,9 @@ for page in PAGES:
         home_page_data = {
             'content': PAGES[page],
             'title': page_metadata['title'],
-            'hero': page_metadata['hero'],
-            'actions': site_data['actions'] if len(site_data['actions']) else []
+            'hero': page_metadata['hero']
         }
-        home_page_html = home_template.render(data=home_page_data, posts=posts_metadata, head=site_head_data)
+        home_page_html = home_template.render(data=home_page_data, posts=posts_metadata, config_data=config_data)
         file_path = 'build/index.html'
         os.makedirs(os.path.dirname(file_path), exist_ok=True)
         with open(file_path, 'w') as output_home_page_file:
@@ -93,7 +88,7 @@ for page in PAGES:
             'title': page_metadata['title'],
             'slug': page_metadata['slug']
         }
-        page_html = page_template.render(data=page_data, head=site_head_data)
+        page_html = page_template.render(data=page_data, config_data=config_data)
         file_path = 'build/{slug}.html'.format(slug=page_data['slug'])
         os.makedirs(os.path.dirname(file_path), exist_ok=True)
         with open(file_path, 'w') as output_page_file:
