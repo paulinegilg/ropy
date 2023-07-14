@@ -10,40 +10,54 @@
     <title>{{ page_title }} | {{ config.title }}</title>
 </head>
 <body>
-<a href="#main" class="skip-link">{{ config.labels.skipLink }}</a>
-<header>
-    <div class="nav-bar flex-row-end">
-        <div class="container flex-row-space-between">
-            <a class="nav-bar__site-title flex-row" href="./index.html" title="{{ config.labels.homeLink }} - {{ config.title }}">
-                <i class="bi bi-robot" aria-hidden="true"></i>{{ config.title }}
-            </a>
-            {% if config.actions|length %}
-            <nav>
-                <ul>
-                    {% for item in config.nav %}
-                    <li>
-                        <a href="{{ item.link }}">{{ item.text }}</a>
-                    </li>
-                    {% endfor %}
-                    {% for item in config.socialLinks %}
-                    <li>
-                        <a href="{{ item.link }}" title="{{ item.type }} - {{ config.labels.newWindow }}">
-                            <i class="bi bi-{{ item.type }}"></i>
-                        </a>
-                    </li>
+    <a href="#main" class="skip-link">{{ config.labels.skipLink }}</a>
+    <header>
+        <div class="nav-bar flex-row-end">
+            <div class="container flex-row-space-between">
+                <a class="nav-bar__site-title flex-row" href="./index.html" title="{{ config.labels.homeLink }} - {{ config.title }}">
+                    <i class="bi bi-robot" aria-hidden="true"></i>{{ config.title }}
+                </a>
+                {% if config.actions|length %}
+                <nav>
+                    <ul>
+                        {% for item in config.nav %}
+                        <li>
+                            <a href="{{ item.link }}">{{ item.text }}</a>
+                        </li>
+                        {% endfor %}
+                        {% for item in config.socialLinks %}
+                        <li>
+                            <a href="{{ item.link }}" title="{{ item.type }} - {{ config.labels.newWindow }}">
+                                <i class="bi bi-{{ item.type }}"></i>
+                            </a>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </nav>
+                {% endif %}
+            </div>
+        </div>
+    </header>
+    <main role="main" id="main">
+        <div class="container">
+            {% block content %} {% endblock %}
+        </div>
+    </main>
+    <footer>
+        <div class="container">
+            {% if config.footer.legalLinks|length %}
+            <div class="legal-links">
+                <ul class="flex-row-center">
+                    {% for item in config.footer.legalLinks %}
+                    <li><a href="{{ item.link }}">{{ item.text }}</a></li>
                     {% endfor %}
                 </ul>
-            </nav>
+            </div>
             {% endif %}
         </div>
-    </div>
-</header>
-<main role="main" id="main">
-    <div class="container">
-        {% block content %} {% endblock %}
-    </div>
-</main>
-<footer>
-</footer>
+        <div class="copyright">
+            <p>{{ config.footer.copyright }} - {{ config.footer.licence }}</p>
+        </div>
+    </footer>
 </body>
 </html>

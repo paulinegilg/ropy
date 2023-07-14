@@ -5,26 +5,26 @@
   "actions": [
     {
       "title": "Zen",
-      "text": "Text 1",
+      "text": "Made with just one file of Python.",
       "link": "/",
       "icon": "filetype-py"
     },
     {
-      "title": "Light",
-      "text": "Text 2",
+      "title": "Simple",
+      "text": "Simple, light and simple.",
       "link": "/",
       "icon": "magic"
     },
     {
       "title": "Accessible",
-      "text": "Text 3",
+      "text": "Follows the WCAG recommendations.",
       "link": "/",
       "icon": "universal-access"
     }
   ],
   "nav": [
     {
-      "text": "About", "link": "/"
+      "text": "About", "link": "about.html"
     }
   ],
   "socialLinks": [
@@ -34,7 +34,7 @@
     }
   ],
   "footer": {
-    "nav": [
+    "legalLinks": [
       {
         "text": "Legal notice", "link": "/"
       },
@@ -42,8 +42,8 @@
         "text": "Personal data", "link": "/"
       }
     ],
-    "copyright": "",
-    "licence": "GPLv3"
+    "copyright": "Lumadil",
+    "licence": "Licence GPLv3"
   },
   "labels": {
     "homeLink": "Home",

@@ -194,7 +194,11 @@ main {
 
 .posts article {
     border-bottom: 1px solid #1e293b;
-    padding: 2rem 0 2rem 0;
+    padding: 1.5rem 0 2rem 0;
+}
+
+.posts article:last-child {
+    border-bottom: none;
 }
 
 .posts article a {
@@ -205,6 +209,87 @@ main {
     padding: 0;
 }
 
-.posts article i, .posts article a {
+.posts article a {
+    color: #ffffe6;
+}
+
+.posts article a:hover {
     color: #ffffb3;
+}
+
+/* Footer */
+
+footer {
+    background-color: #1e293b;
+    padding: 1rem 0 1rem 0;
+    font-size: 1.6rem;
+}
+
+footer ul li {
+    list-style: none;
+}
+
+footer a {
+    text-decoration: none;
+    color: #8a98d5;
+    font-weight: 700;
+    transition: all 0.3s;
+}
+
+footer a:hover {
+    color: #ffffe6;
+}
+
+footer .copyright {
+    text-align: center;
+}
+
+/* Page */
+
+.page-content section {
+    padding: 4rem 0 2rem 0;
+}
+
+/* Page titles */
+.page-content h1 {
+    text-align: center;
+}
+
+.page-content h2 {
+    font-size: 3.6rem;
+    padding-top: 3.5rem;
+}
+
+.page-content h3 {
+    font-size: 2.8rem;
+    padding-top: 2rem;
+}
+
+.page-content h4 {
+    font-size: 2.5rem;
+    padding-top: 2rem;
+}
+
+.page-content h5 {
+    font-size: 2.2rem;
+    padding-top: 2rem;
+}
+
+.page-content h6 {
+    font-size: 2rem;
+    padding-top: 1.8rem;
+}
+
+code {
+    background-color: #1e293b;
+    border-radius: 0.75rem;
+    padding: 0.25rem 0.5rem;
+    color: #ffffe6;
+    font-size: 1.7rem;
+}
+
+/* Lists */
+
+.page-content ul {
+    padding: 1rem 0 1.5rem 3rem;
 }

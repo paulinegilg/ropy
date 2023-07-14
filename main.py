@@ -30,7 +30,7 @@ if config_data['posts']:
     # Sort post by reverse date
     POSTS = {
         post: POSTS[post] for post in
-        sorted(POSTS, key=lambda dated_post: datetime.strptime(POSTS[post].metadata['date'], '%Y-%m-%d'), reverse=True)
+        sorted(POSTS, key=lambda post: datetime.strptime(POSTS[post].metadata['date'], '%Y-%m-%d'), reverse=True)
     }
 
     # Combine all posts metadata
