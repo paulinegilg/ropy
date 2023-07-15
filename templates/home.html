@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 
 {% set config = config_data %}
+{% set position = position %}
 
 {% set page_title = data.title %}
 
@@ -32,7 +33,7 @@
     </section>
     {% endif %}
 
-    <section>
+    <section class="content-section">
         {{ data.content }}
     </section>
 

@@ -3,7 +3,7 @@ layout: home
 title: Home
 hero:
     title: RoPy
-    subtitle: A very simple static site generator in Python
+    subtitle: A very very simple static site generator in Python
     image: /logo.png
 ---
 

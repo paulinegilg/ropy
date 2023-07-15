@@ -36,6 +36,13 @@ if config_data['posts']:
     # Combine all posts metadata
     posts_metadata = [POSTS[post].metadata for post in POSTS]
 
+    # Convert date to dd-mm-yyyy format
+    for post in posts_metadata:
+        date = post['date'].split('-')
+        date.reverse()
+        date = '/'.join(date)
+        post['date'] = date
+
 # Pages
 for page in os.listdir('content'):
     file_path = os.path.join('content', page)
@@ -45,24 +52,17 @@ for page in os.listdir('content'):
 
 # BUILD
 
-# Create build directory if needed
-# build_path = 'build'
-# if not os.path.exists(build_path):
-#     os.makedirs(build_path)
-
 # Build posts
 if config_data['posts']:
     for post in POSTS:
         post_metadata = POSTS[post].metadata
-
         post_data = {
             'content': POSTS[post],
             'title': post_metadata['title'],
             'date': post_metadata['date']
         }
-
-        post_html = post_template.render(post=post_data, config_data=config_data)
         post_file_path = 'build/posts/{slug}.html'.format(slug=post_metadata['slug'])
+        post_html = post_template.render(post=post_data, config_data=config_data, position=1)
         os.makedirs(os.path.dirname(post_file_path), exist_ok=True)
         with open(post_file_path, 'w') as output_post_file:
             output_post_file.write(post_html)
@@ -77,8 +77,8 @@ for page in PAGES:
             'title': page_metadata['title'],
             'hero': page_metadata['hero']
         }
-        home_page_html = home_template.render(data=home_page_data, posts=posts_metadata, config_data=config_data)
         file_path = 'build/index.html'
+        home_page_html = home_template.render(data=home_page_data, posts=posts_metadata, config_data=config_data, position=0)
         os.makedirs(os.path.dirname(file_path), exist_ok=True)
         with open(file_path, 'w') as output_home_page_file:
             output_home_page_file.write(home_page_html)
@@ -88,8 +88,9 @@ for page in PAGES:
             'title': page_metadata['title'],
             'slug': page_metadata['slug']
         }
-        page_html = page_template.render(data=page_data, config_data=config_data)
         file_path = 'build/{slug}.html'.format(slug=page_data['slug'])
+        page_html = page_template.render(data=page_data, config_data=config_data, position=0)
+
         os.makedirs(os.path.dirname(file_path), exist_ok=True)
         with open(file_path, 'w') as output_page_file:
             output_page_file.write(page_html)

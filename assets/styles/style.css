@@ -35,6 +35,16 @@ body {
 
 /* Containers and flexbox */
 
+.site-container {
+    display: flex;
+    min-height: 100vh;
+    flex-flow: column;
+}
+
+main {
+    flex-grow: 1;
+}
+
 .container {
     max-width: 110rem;
     width: 100%;
@@ -244,38 +254,39 @@ footer .copyright {
     text-align: center;
 }
 
-/* Page */
+/* Content */
 
-.page-content section {
+.content-section__content {
     padding: 4rem 0 2rem 0;
 }
 
-/* Page titles */
-.page-content h1 {
+/* Content titles */
+
+.content-section h1, .content-section hgroup {
     text-align: center;
 }
 
-.page-content h2 {
+.content-section h2 {
     font-size: 3.6rem;
     padding-top: 3.5rem;
 }
 
-.page-content h3 {
+.content-section h3 {
     font-size: 2.8rem;
     padding-top: 2rem;
 }
 
-.page-content h4 {
+.content-section h4 {
     font-size: 2.5rem;
     padding-top: 2rem;
 }
 
-.page-content h5 {
+.content-section h5 {
     font-size: 2.2rem;
     padding-top: 2rem;
 }
 
-.page-content h6 {
+.content-section h6 {
     font-size: 2rem;
     padding-top: 1.8rem;
 }
@@ -290,6 +301,6 @@ code {
 
 /* Lists */
 
-.page-content ul {
+.content-section ul {
     padding: 1rem 0 1.5rem 3rem;
 }

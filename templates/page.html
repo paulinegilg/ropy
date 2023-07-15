@@ -1,16 +1,17 @@
 {% extends "base.html" %}
 
 {% set config = config_data %}
+{% set position = position %}
 
 {% set page_title = data.title %}
 
 {% block content %}
 
-<div class="page-content">
+<section class="content-section">
     <div class="container">
         <h1>{{ page_title }}</h1>
-        <section>{{ data.content }}</section>
+        <div class="content-section__content">{{ data.content }}</div>
     </div>
-</div>
+</section>
 
 {% endblock %}
