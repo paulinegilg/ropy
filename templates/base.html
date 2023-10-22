@@ -15,7 +15,7 @@
         <div class="nav-bar flex-row-end">
             <div class="container flex-row-space-between">
                 <a class="nav-bar__site-title flex-row" href="{% if position %}../{% endif %}index.html" title="{{ config.labels.homeLink }} - {{ config.title }}">
-                    <i class="bi bi-robot" aria-hidden="true"></i>{{ config.title }}
+                    <i class="bi bi-{{ config.siteLogo }}" aria-hidden="true"></i>{{ config.title }}
                 </a>
                 {% if config.actions|length %}
                 <nav>
