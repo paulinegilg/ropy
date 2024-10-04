@@ -6,7 +6,7 @@
   "actions": [
     {
       "title": "Zen",
-      "text": "Made with just one file of Python.",
+      "text": "Made with just one file of Python and TailwindCSS",
       "link": "/",
       "icon": "filetype-py"
     },

@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+.data-content a {
+    color: #fff;
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-decoration-color: #818cf8;
+}
+
+.data-content a:hover {
+    text-decoration-thickness: 3px;
+}

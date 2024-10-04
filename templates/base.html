@@ -6,60 +6,58 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="{% if position %}../{% endif %}assets/styles/style.css">
+    <link rel="stylesheet" href="{% if position %}../{% endif %}/style.css">
     <title>{{ page_title }} | {{ config.title }}</title>
 </head>
-<body>
-    <a href="#main" class="skip-link">{{ config.labels.skipLink }}</a>
-    <header>
-        <div class="nav-bar flex-row-end">
-            <div class="container flex-row-space-between">
-                <a class="nav-bar__site-title flex-row" href="{% if position %}../{% endif %}index.html" title="{{ config.labels.homeLink }} - {{ config.title }}">
-                    <i class="bi bi-{{ config.siteLogo }}" aria-hidden="true"></i>{{ config.title }}
-                </a>
-                {% if config.actions|length %}
-                <nav>
-                    <ul>
-                        {% for item in config.nav %}
-                        <li>
-                            <a href="{% if position %}../{% endif %}{{ item.link }}">{{ item.text }}</a>
-                        </li>
-                        {% endfor %}
-                        {% for item in config.socialLinks %}
-                        <li>
-                            <a href="{{ item.link }}" title="{{ item.type }} - {{ config.labels.newWindow }}">
-                                <i class="bi bi-{{ item.type }}"></i>
-                            </a>
-                        </li>
-                        {% endfor %}
-                    </ul>
-                </nav>
-                {% endif %}
-            </div>
+<body class="flex flex-col gap-y-4 justify-between bg-gray-dark text-gray-light font-normal p-2 relative">
+    <!--
+    <a href="#main">{{ config.labels.skipLink }}</a>
+    -->
+    <header class="fixed top-0 left-0 right-0 p-4 backdrop-blur">
+        <div class="container flex justify-between gap-2 mx-auto">
+            <a class="basis-1/4" href="{% if position %}../{% endif %}index.html" title="{{ config.labels.homeLink }} - {{ config.title }}">
+                <i class="bi bi-{{ config.siteLogo }} mr-2" aria-hidden="true"></i>{{ config.title }}
+            </a>
+            {% if config.actions|length %}
+            <nav class="basis-3/4">
+                <ul class="flex justify-end gap-2">
+                    {% for item in config.nav %}
+                    <li>
+                        <a class="hover:text-purple-light" href="{% if position %}../{% endif %}{{ item.link }}">{{ item.text }}</a>
+                    </li>
+                    {% endfor %}
+                    {% for item in config.socialLinks %}
+                    <li>
+                        <a class="hover:text-purple-light" href="{{ item.link }}" title="{{ item.type }} - {{ config.labels.newWindow }}">
+                            <i class="bi bi-{{ item.type }}"></i>
+                        </a>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </nav>
+            {% endif %}
         </div>
     </header>
-    <div class="site-container">
-        <main role="main" id="main">
-            <div class="container">
-                {% block content %} {% endblock %}
+    <main role="main" id="main">
+        <div>
+            {% block content %} {% endblock %}
+        </div>
+    </main>
+    <footer>
+        <div>
+            {% if config.footer.legalLinks|length %}
+            <div>
+                <ul>
+                    {% for item in config.footer.legalLinks %}
+                    <li><a href="{% if position %}../{% endif %}{{ item.link }}">{{ item.text }}</a></li>
+                    {% endfor %}
+                </ul>
             </div>
-        </main>
-        <footer>
-            <div class="container">
-                {% if config.footer.legalLinks|length %}
-                <div class="legal-links">
-                    <ul class="flex-row-center">
-                        {% for item in config.footer.legalLinks %}
-                        <li><a href="{% if position %}../{% endif %}{{ item.link }}">{{ item.text }}</a></li>
-                        {% endfor %}
-                    </ul>
-                </div>
-                {% endif %}
-            </div>
-            <div class="copyright">
-                <p>{{ config.footer.copyright }} - {{ config.footer.licence }}</p>
-            </div>
-        </footer>
-    </div>
+            {% endif %}
+        </div>
+        <div>
+            <p>{{ config.footer.copyright }} - {{ config.footer.licence }}</p>
+        </div>
+    </footer>
 </body>
 </html>

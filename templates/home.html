@@ -7,45 +7,43 @@
 
 {% block content %}
 
-<div class="home-content">
-
-    <div class="hero flex-column">
+<div class="flex flex-col justify-between gap-y-12">
+    <section class="flex flex-col gap-y-2 text-center">
         <img src="{{ data.hero.image }}" alt=""/>
-        <hgroup class="flex-column">
-            <h1>{{ data.hero.title }}</h1>
-            <p>{{ data.hero.subtitle }}</p>
+        <hgroup class="flex flex-col gap-y-2">
+            <h1 class="text-3xl text-purple-light font-semibold">{{ data.hero.title }}</h1>
+            <p class="text-xl text-gray-light">{{ data.hero.subtitle }}</p>
         </hgroup>
-    </div>
-
+    </section>
     {% if config.actions|length %}
-    <section class="actions flex-row-center">
+    <section class="container flex justify-between gap-2 mx-auto">
         {% for action in config.actions %}
-        <a href="{{ action.link }}" title="{{ action.title }}" class="flex-column">
+        <a class="basis-1/3 flex gap-4" href="{{ action.link }}" title="{{ action.title }}">
             {% if action.icon %}
-            <div class="actions__action-icon">
-                <i class="bi bi-{{ action.icon }}" aria-hidden="true"></i>
+            <div>
+                <i class="bi bi-{{ action.icon }} text-lg text-purple-light" aria-hidden="true"></i>
             </div>
             {% endif %}
-            <h2>{{ action.title }}</h2>
-            <p>{{ action.text }}</p>
+            <div class="flex flex-col gap-y-2">
+                <h2 class="text-lg font-medium text-white">{{ action.title }}</h2>
+                <p>{{ action.text }}</p>
+            </div>
         </a>
         {% endfor %}
     </section>
     {% endif %}
-
-    <section class="content-section">
+    <section class="data-content container mx-auto">
         {{ data.content }}
     </section>
-
     {% if posts|length %}
-    <section class="posts flex-column">
+    <section class="container mx-auto">
         <h2>{{ config.labels.postsTitle }}</h2>
             {% for post in posts %}
-            <article class="flex-row">
+            <article>
                 <i class="bi bi-asterisk" aria-hidden="true"></i>
-                <div class="flex-column">
-                    <h3 class="flex-row">
-                        <a href="posts/{{ post.slug }}.html" class="flex-column">
+                <div>
+                    <h3>
+                        <a href="posts/{{ post.slug }}.html">
                         {{ post.title }}
                         </a>
                         <span>{{ post.date }}</span>
@@ -57,5 +55,4 @@
     </section>
     {% endif %}
 </div>
-
 {% endblock %}
